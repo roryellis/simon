@@ -1,0 +1,89 @@
+h1,
+h2 {
+	text-align: center;
+}
+
+.score-board {
+	width: 50vw;
+	height: 3vw;
+	background: green;
+	margin: 2vh auto;
+	border: 1px solid black;
+}
+
+.game-board-container {
+	width: 50vw;
+	height: 50vw;
+	background: rgb(46, 46, 46);
+	margin: 0 auto;
+	border-radius: 100%;
+	padding: 1vw;
+}
+
+.game-board {
+	width: 50vw;
+	height: 50vw;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	margin: 0 auto;
+	position: relative;
+}
+
+.game-button {
+	margin: 1vw;
+}
+
+.game-controls-container {
+	background: rgb(46, 46, 46);
+	width: 20vw;
+	height: 20vw;
+	left: 50%;
+	top: 50%;
+	margin-left: -10vw;
+	margin-top: -10vw;
+	position: absolute;
+	border-radius: 100%;
+}
+
+.game-logo {
+	text-align: center;
+}
+
+.difficulty-level {
+	height: 2em;
+	text-align: center;
+}
+
+.difficulty-display {
+	height: 2em;
+	width: 2em;
+	background: black;
+	color: red;
+	text-align: center;
+	padding-top: 1em;
+}
+
+.green {
+	border-top-left-radius: 100%;
+	background: green;
+	border: none;
+}
+
+.red {
+	border-top-right-radius: 100%;
+	background: red;
+	border: none;
+}
+
+.yellow {
+	border-bottom-left-radius: 100%;
+	background: yellow;
+	border: none;
+}
+
+.blue {
+	border-bottom-right-radius: 100%;
+	background: blue;
+	border: none;
+}
