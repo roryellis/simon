@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Simon</title>
-        <link rel="stylesheet" href="style.css">
-		<script defer src="game-board.js"></script>
+		<title>Simon</title>
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="game-board-effects.js"></script>
 	</head>
 	<body>
 		<header>
@@ -15,23 +15,23 @@
 		<main>
 			<section class="game-area">
 				<section class="score-board"></section>
-				<div class="game-board-container">
-					<section class="game-board">
-						<button class="game-button green"></button>
-						<button class="game-button red"></button>
-						<button class="game-button yellow"></button>
-						<button class="game-button blue"></button>
-                        <section class="game-controls-container">
-                            <h3 class="game-logo">SIMON</h3>
-                            <section class="difficulty">
-                                <p class="difficulty-label">Difficulty Level</p>
-                                <div class="difficulty-display">#</div>
-                            </section>
-                            <button class="set-difficulty-button">Set Difficulty</button>
-                            <button class="reset-button">Reset</button>
-                        </section>
-					</section>
-				</div>
+				<section class="game-board-container">
+					<div class="game-board">
+						<div class="game-button green"></div>
+						<div class="game-button red"></div>
+						<div class="game-button yellow"></div>
+						<div class="game-button blue"></div>
+						<section class="game-controls-container">
+							<h3 class="game-logo">SIMON</h3>
+							<section class="difficulty">
+								<p class="difficulty-label">Difficulty Level</p>
+								<div class="difficulty-display">#</div>
+							</section>
+							<button class="set-difficulty-button">Set Difficulty</button>
+							<button class="reset-button">Reset</button>
+						</section>
+					</div>
+				</section>
 			</section>
 		</main>
 	</body>
