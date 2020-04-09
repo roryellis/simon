@@ -43,16 +43,18 @@ h2 {
 	margin-left: -10vw;
 	margin-top: -10vw;
 	position: absolute;
-	border-radius: 100%;
+    border-radius: 100%;
+    text-align: center;
 }
 
 .game-logo {
-	text-align: center;
+    font-size: 3vw;
+    margin: 0.5em;
+
 }
 
-.difficulty-level {
-	height: 2em;
-	text-align: center;
+.difficulty-label {
+    margin-bottom: 2px;
 }
 
 .difficulty-display {
@@ -60,30 +62,47 @@ h2 {
 	width: 2em;
 	background: black;
 	color: red;
-	text-align: center;
-	padding-top: 1em;
+    padding-top: 1em;
+    margin: 0 auto;
+}
+
+.set-difficulty-button, .reset-button {
+    margin: 2vw 1vw;
 }
 
 .green {
 	border-top-left-radius: 100%;
-	background: green;
+	background: rgb(0, 100, 0);
 	border: none;
+}
+
+.green-lit {
+    background: radial-gradient(rgb(0, 255, 0),rgb(0, 100, 0));
 }
 
 .red {
 	border-top-right-radius: 100%;
-	background: red;
+    background: rgb(100, 0, 0);
 	border: none;
+}
+.red-lit {
+    background: radial-gradient(rgb(255, 0, 0),rgb(100, 0, 0));
 }
 
 .yellow {
 	border-bottom-left-radius: 100%;
-	background: yellow;
+	background: rgb(100, 100, 0);
 	border: none;
+}
+.yellow-lit {
+    background: radial-gradient(rgb(255, 255, 0),rgb(100, 100, 0));
 }
 
 .blue {
 	border-bottom-right-radius: 100%;
-	background: blue;
+	background: rgb(0, 0, 75);
 	border: none;
+}
+.blue-lit {
+    background: radial-gradient(rgb(0, 0, 255),rgb(0, 0, 75));
 }
