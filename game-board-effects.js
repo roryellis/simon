@@ -8,7 +8,7 @@ const yellowButton = document.querySelector('.yellow');
 const blueButton = document.querySelector('.blue');
 
 //Set time delay in milliseconds for lit state toggle. Will adjust by difficulty level.
-let gameSpeed = 250;
+let gameSpeed = 500;
 
 //Set time delay in milliseconds for light cycle and flicker
 const cycleSpeed = 50;

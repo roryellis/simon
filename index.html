@@ -14,10 +14,12 @@
 			<h2>Repeat after me . . .</h2>
 		</header>
 		<main>
-			<section class="instruction-modal">
+			<section class="instruction-modal hidden">
 				<h2>How to play Simon</h2>
 				<p>SIMON INSTRUCTIONS</p>
-				<div class="modal-footer"></div>
+				<div class="modal-footer">
+					<button class="close-button">Close</button>
+				</div>
 			</section>
 			<section class="game-area">
 				<section class="score-board">
@@ -26,6 +28,7 @@
 						Top Score: <span class="top-score-value"></span>
 					</p>
 				</section>
+				<button class="instructions-button">Instructions</button>
 				<section class="game-board-container">
 					<div class="game-board">
 						<div class="game-button green" id="1"></div>
@@ -34,15 +37,19 @@
 						<div class="game-button blue" id="4"></div>
 						<section class="game-controls-container">
 							<h3 class="game-logo">SIMON</h3>
-							<section class="difficulty">
-								<p class="difficulty-label">Difficulty Level</p>
-								<div class="difficulty-display">#</div>
+							<section class="info-center">
+								<p class="game-mode-label">Game Mode</p>
+								<p class="difficulty-label">Difficulty</p>
+								<div class="digital-display">
+									<li class="game-mode">Standard</li>
+									<li class="difficulty-level">#</li>
+								</div>
 							</section>
 							<div class="button-container">
 								<li class="play-button">Start</li>
 								<li class="set-difficulty-button">Difficulty</li>
 								<li class="reset-button">Reset</li>
-								<li class="open-instructions">Instructions</li>
+								<li class="game-mode-button">Mode</li>
 							</div>
 						</section>
 					</div>
