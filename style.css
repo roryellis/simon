@@ -81,7 +81,6 @@ h2 {
 .game-mode-label {
 	justify-self: left;
 	grid-column: 1 / span 1;
-
 }
 
 .difficulty-label {
@@ -161,4 +160,12 @@ h2 {
 }
 .blue-lit {
 	background: radial-gradient(rgb(0, 0, 255), rgb(0, 0, 75));
+}
+
+.game-button .grey {
+	background: grey;
+}
+
+.grey-lit {
+	background: radial-gradient(white, grey);
 }

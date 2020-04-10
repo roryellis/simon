@@ -6,6 +6,8 @@ const currentScore = document.querySelector('.current-score-value');
 const topScore = document.querySelector('.top-score-value');
 const difficultyLevel = document.querySelector('.difficulty-level');
 const difficultyButton = document.querySelector('.set-difficulty-button');
+const gameMode = document.querySelector('.game-mode');
+const gameModeButton = document.querySelector('.game-mode-button');
 
 //LISTENERS
 playButton.addEventListener('click', startSequence);
@@ -13,20 +15,29 @@ gameBoard.addEventListener('click', playerInput);
 gameBoard.addEventListener('click', buttonPressLight);
 resetButton.addEventListener('click', reset);
 difficultyButton.addEventListener('click', cycleDifficulty);
-
+gameModeButton.addEventListener('click', cycleGameMode);
 
 //Declare moves array.
 let moves = [];
+let reverseMoves = [];
 
 //declare difficulty level
 let difficulty = 1;
 difficultyLevel.innerText = difficulty;
 setGameSpeed();
 
+//Declare game mode
+let gameModeValue = 'standard';
+gameMode.innerText = gameModeValue.toUpperCase();
+
 //game generates a random move
 //generate random number 1-4, push to array
 function addNewMove() {
-	moves.push(Math.ceil(Math.random() * 4));
+    let newMove = Math.ceil(Math.random() * 4);
+    moves.push(newMove);
+    reverseMoves.unshift(newMove);
+    console.log('moves: ', moves);
+    console.log('reverse-moves: ', reverseMoves);
 }
 
 //Modal with instructions and "Ready to play?" button.
@@ -97,14 +108,25 @@ function getButtonId(event) {
 
 function checkPlayerMoves() {
 	const moveChecks = [];
-	for (i = 0; i < playerMoves.length; i++) {
-		if (playerMoves[i] === moves[i]) {
-			moveChecks.push(true);
-		} else {
-			moveChecks.push(false);
+	if (gameModeValue === 'reverse') {
+		for (i = 0; i < playerMoves.length; i++) {
+			if (playerMoves[i] === reverseMoves[i]) {
+				moveChecks.push(true);
+			} else {
+				moveChecks.push(false);
+			}
 		}
+		return moveChecks.every(isTrue);
+	} else {
+		for (i = 0; i < playerMoves.length; i++) {
+			if (playerMoves[i] === moves[i]) {
+				moveChecks.push(true);
+			} else {
+				moveChecks.push(false);
+			}
+		}
+		return moveChecks.every(isTrue);
 	}
-	return moveChecks.every(isTrue);
 }
 
 function isTrue(item) {
@@ -114,44 +136,54 @@ function isTrue(item) {
 	return false;
 }
 
-
 //increment current score
 function incrementScore() {
-    playerScore += 1;
-    currentScore.innerText = playerScore;
-    if (playerScore > topScoreValue) {
-        topScoreValue = playerScore;
-        topScore.innerText = topScoreValue;
-    }
-};
+	playerScore += 1;
+	currentScore.innerText = playerScore;
+	if (playerScore > topScoreValue) {
+		topScoreValue = playerScore;
+		topScore.innerText = topScoreValue;
+	}
+}
 
 //reset button
 
 function reset() {
-    flickerAll();
+	flickerAll();
 	moves = [];
 	playerMoves = [];
 	playerScore = 0;
 	currentScore.innerText = playerScore;
 }
 
-
 //Cycle Difficulty level
 
 function cycleDifficulty() {
-    if (difficulty < 4) {
-        difficulty++;
-    } else {
-        difficulty = 1;
-    };
-    difficultyLevel.innerText = difficulty;
-    setGameSpeed();
-};
+	if (difficulty < 4) {
+		difficulty++;
+	} else {
+		difficulty = 1;
+	}
+	difficultyLevel.innerText = difficulty;
+	setGameSpeed();
+}
 
 function setGameSpeed() {
-    const speedOptions = [500, 250, 125, 62.5];
-    gameSpeed = speedOptions[difficulty - 1];
+	const speedOptions = [500, 250, 125, 62.5];
+	gameSpeed = speedOptions[difficulty - 1];
 }
+
+function cycleGameMode() {
+    const modeOptions = ['standard', 'reverse'];
+    const currentModeIndex = modeOptions.indexOf(`${gameModeValue}`);
+    if (currentModeIndex === 1) {
+        gameModeValue = modeOptions[0];
+    } else {
+        gameModeValue = modeOptions[currentModeIndex + 1];
+    }
+    gameMode.innerText = gameModeValue.toUpperCase();
+};
+
 
 //time limit for input?
 
