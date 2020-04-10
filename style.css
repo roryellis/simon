@@ -127,12 +127,12 @@ h2 {
 }
 
 .button-container {
-	width: 15vh;
 	display: grid;
 	grid-row: 3;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: auto auto;
 	grid-template-rows: 1fr 1fr;
-	margin: 0 auto;
+	margin: 0;
+	padding: 0 4vh;
 }
 
 .button-container > li {
