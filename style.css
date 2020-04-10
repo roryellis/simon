@@ -5,56 +5,56 @@ h2 {
 
 .score-board {
 	width: 50vw;
-	height: 3vw;
+	min-height: 3em;
 	background: green;
 	margin: 2vh auto;
 	border: 1px solid black;
 }
 
 .game-board-container {
-	width: 50vw;
-	height: 50vw;
-	background: rgb(46, 46, 46);
+	width: 70vh;
+	height: 70vh;
+	background: rgb(77, 77, 77);
 	margin: 0 auto;
 	border-radius: 100%;
 	padding: 1vw;
+	box-shadow: inset 0 0 2vh black;
 }
 
 .game-board {
-	width: 50vw;
-	height: 50vw;
+	width: 70vh;
+	height: 70vh;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-	margin: 0 auto;
+	margin: auto auto;
 	position: relative;
 }
 
 .game-button {
-	margin: 1vw;
+	margin: 1vh;
 }
 
 .game-controls-container {
-	background: rgb(46, 46, 46);
-	width: 20vw;
-	height: 20vw;
+	background: rgb(77, 77, 77);
+	width: 30vh;
+	height: 30vh;
 	left: 50%;
 	top: 50%;
-	margin-left: -10vw;
-	margin-top: -10vw;
+	margin-left: -15vh;
+	margin-top: -15vh;
 	position: absolute;
-    border-radius: 100%;
-    text-align: center;
+	border-radius: 100%;
+	text-align: center;
 }
 
 .game-logo {
-    font-size: 3vw;
-    margin: 0.5em;
-
+	font-size: 3vh;
+	margin: 0.5em;
 }
 
 .difficulty-label {
-    margin-bottom: 2px;
+	margin-bottom: 2px;
 }
 
 .difficulty-display {
@@ -62,12 +62,13 @@ h2 {
 	width: 2em;
 	background: black;
 	color: red;
-    padding-top: 1em;
-    margin: 0 auto;
+	padding-top: 1em;
+	margin: 0 auto;
 }
 
-.set-difficulty-button, .reset-button {
-    margin: 2vw 1vw;
+.set-difficulty-button,
+.reset-button {
+	margin: 2vh 1vh;
 }
 
 .green {
@@ -77,16 +78,16 @@ h2 {
 }
 
 .green-lit {
-    background: radial-gradient(rgb(0, 255, 0),rgb(0, 100, 0));
+	background: radial-gradient(rgb(0, 255, 0), rgb(0, 100, 0));
 }
 
 .red {
 	border-top-right-radius: 100%;
-    background: rgb(100, 0, 0);
+	background: rgb(100, 0, 0);
 	border: none;
 }
 .red-lit {
-    background: radial-gradient(rgb(255, 0, 0),rgb(100, 0, 0));
+	background: radial-gradient(rgb(255, 0, 0), rgb(100, 0, 0));
 }
 
 .yellow {
@@ -95,7 +96,7 @@ h2 {
 	border: none;
 }
 .yellow-lit {
-    background: radial-gradient(rgb(255, 255, 0),rgb(100, 100, 0));
+	background: radial-gradient(rgb(255, 255, 0), rgb(100, 100, 0));
 }
 
 .blue {
@@ -104,5 +105,5 @@ h2 {
 	border: none;
 }
 .blue-lit {
-    background: radial-gradient(rgb(0, 0, 255),rgb(0, 0, 75));
+	background: radial-gradient(rgb(0, 0, 255), rgb(0, 0, 75));
 }
