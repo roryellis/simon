@@ -11,7 +11,7 @@ const blueButton = document.querySelector('.blue');
 let gameSpeed = 250;
 
 //Set time delay in milliseconds for light cycle and flicker
-const cycleSpeed = 75;
+const cycleSpeed = 50;
 
 //Function to cycle lit states.
 function lightCycle() {
