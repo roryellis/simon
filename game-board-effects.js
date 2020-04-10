@@ -7,12 +7,8 @@ const redButton = document.querySelector('.red');
 const yellowButton = document.querySelector('.yellow');
 const blueButton = document.querySelector('.blue');
 
-//Button event listeners
-
-greenButton.addEventListener('click', lightShow);
-
 //Set time delay in milliseconds for lit state toggle. Will adjust by difficulty level.
-let gameSpeed = 1000;
+let gameSpeed = 250;
 
 //Set time delay in milliseconds for light cycle and flicker
 const cycleSpeed = 75;
@@ -90,3 +86,60 @@ function toggleYellowLit() {
 function toggleBlueLit() {
 	blueButton.classList.toggle('blue-lit');
 }
+
+//demonstrate moves
+let moveIndex = 0;
+
+function demonstrate(arr) {
+	if (moveIndex > arr.length) {
+		return (moveIndex = 0);
+	} else if (arr[moveIndex] === 1) {
+		toggleGreenLit();
+		setTimeout(() => {
+			toggleGreenLit();
+		}, gameSpeed);
+	} else if (arr[moveIndex] === 2) {
+		toggleRedLit();
+		setTimeout(() => {
+			toggleRedLit();
+		}, gameSpeed);
+	} else if (arr[moveIndex] === 3) {
+		toggleYellowLit();
+		setTimeout(() => {
+			toggleYellowLit();
+		}, gameSpeed);
+	} else if (arr[moveIndex] === 4) {
+		toggleBlueLit();
+		setTimeout(() => {
+			toggleBlueLit();
+		}, gameSpeed);
+	}
+	moveIndex += 1;
+	setTimeout(() => {
+		demonstrate(arr);
+	}, gameSpeed * 2);
+};
+
+function buttonPressLight(buttonId) {
+	if (buttonId === 1) {
+		toggleGreenLit();
+		setTimeout(() => {
+			toggleGreenLit();
+		}, gameSpeed * 0.5)
+	} else if (buttonId === 2) {
+		toggleRedLit();
+		setTimeout(() => {
+			toggleRedLit();
+		}, gameSpeed * 0.5);
+	} else if (buttonId === 3) {
+		toggleYellowLit();
+		setTimeout(() => {
+			toggleYellowLit();
+		}, gameSpeed * 0.5);
+	} else if (buttonId === 4) {
+		toggleBlueLit();
+		setTimeout(() => {
+			toggleBlueLit();
+		}, gameSpeed * 0.5);
+	}
+};
