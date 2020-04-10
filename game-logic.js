@@ -68,7 +68,6 @@ let topScoreValue = 0;
 topScore.innerText = topScoreValue;
 
 //on button click(propagation on game board)
-
 function playerInput(event) {
 	if (event.target.classList.contains('game-button')) {
 		//get ID number of button, push id to array, toggle light on off
@@ -102,7 +101,6 @@ function playerInput(event) {
 function getButtonId(event) {
 	const buttonId = parseInt(event.target.id);
 	playerMoves.push(buttonId);
-	//NEED WORK ON BUTTON PRESS LIGHT TIMING
 	buttonPressLight(buttonId);
 }
 
@@ -147,7 +145,6 @@ function incrementScore() {
 }
 
 //reset button
-
 function reset() {
 	flickerAll();
 	moves = [];
@@ -157,7 +154,6 @@ function reset() {
 }
 
 //Cycle Difficulty level
-
 function cycleDifficulty() {
 	if (difficulty < 4) {
 		difficulty++;
@@ -183,8 +179,3 @@ function cycleGameMode() {
     }
     gameMode.innerText = gameModeValue.toUpperCase();
 };
-
-
-//time limit for input?
-
-//if incorrect: game over modal
