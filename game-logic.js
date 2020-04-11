@@ -180,7 +180,7 @@ function isTrue(item) {
 
 //increment current score
 function incrementScore() {
-	playerScore += countDownValue;
+	playerScore += countDownValue * difficulty;
 	currentScore.innerText = playerScore;
 	if (playerScore > topScoreValue) {
 		//LOCAL TOP SCORE STORAGE
@@ -193,8 +193,8 @@ function incrementScore() {
 
 //reset button
 function reset() {
-    timerCountdown(false);
-    unlightTimer();
+	timerCountdown(false);
+	unlightTimer();
 	flickerAll();
 	moves = [];
 	playerMoves = [];
@@ -214,7 +214,7 @@ function cycleDifficulty() {
 }
 
 function setGameSpeed() {
-	const speedOptions = [500, 250, 125, 62.5];
+	const speedOptions = [500, 300, 150, 100];
 	gameSpeed = speedOptions[difficulty - 1];
 }
 
