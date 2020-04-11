@@ -3,6 +3,10 @@ h2 {
 	text-align: center;
 }
 
+li {
+	list-style-type: none;
+}
+
 .hidden {
 	display: none;
 }
@@ -11,7 +15,6 @@ h2 {
 	width: 50vw;
 	min-height: 3em;
 	margin: 1vh auto;
-	border: 1px solid black;
 	display: grid;
 	grid-auto-flow: column;
 	justify-items: center;
@@ -137,12 +140,27 @@ h2 {
 }
 
 .button-container > li {
-	list-style-type: none;
 	background: yellow;
 	box-shadow: inset 0 0 3vh rgb(104, 93, 0);
 	border-radius: 10%;
 	margin: 0.5vh;
 	padding: 0.25vh;
+}
+
+.timer-bar {
+	display: grid;
+	grid-auto-flow: column;
+}
+
+.timer-segment {
+	width: 2.5vw;
+	height: 1em;
+	margin-top: 1em;
+}
+
+.black {
+	border: 1px solid white;
+	background: black;
 }
 
 .green {

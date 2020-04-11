@@ -7,6 +7,10 @@ const redButton = document.querySelector('.red');
 const yellowButton = document.querySelector('.yellow');
 const blueButton = document.querySelector('.blue');
 
+//target timer bar
+const timerBar = document.querySelector('.timer-bar');
+const timerSegments = document.querySelectorAll('.timer-segment');
+
 //Set time delay in milliseconds for lit state toggle. Will adjust by difficulty level.
 let gameSpeed = 500;
 
@@ -89,10 +93,12 @@ function toggleBlueLit() {
 
 //demonstrate moves
 let moveIndex = 0;
-
+//demonstrate is passed the moves array, consisting of button ids
 function demonstrate(arr) {
+	//base case ends recursive function and returns moveindex to zero
 	if (moveIndex > arr.length) {
 		return (moveIndex = 0);
+		//check array[moveIndex] value and toggle lit state on corresponding game-button
 	} else if (arr[moveIndex] === 1) {
 		toggleGreenLit();
 		setTimeout(() => {
@@ -114,18 +120,20 @@ function demonstrate(arr) {
 			toggleBlueLit();
 		}, gameSpeed);
 	}
+	//increment moveIndex
 	moveIndex += 1;
+	//delay recursion by gamespeed * 2 to allow lit state toggle to complete
 	setTimeout(() => {
 		demonstrate(arr);
 	}, gameSpeed * 2);
-};
+}
 
 function buttonPressLight(buttonId) {
 	if (buttonId === 1) {
 		toggleGreenLit();
 		setTimeout(() => {
 			toggleGreenLit();
-		}, gameSpeed * 0.5)
+		}, gameSpeed * 0.5);
 	} else if (buttonId === 2) {
 		toggleRedLit();
 		setTimeout(() => {
@@ -142,4 +150,18 @@ function buttonPressLight(buttonId) {
 			toggleBlueLit();
 		}, gameSpeed * 0.5);
 	}
-};
+}
+
+
+//initiate full timer bar
+function lightTimer() {
+	timerSegments.forEach((segment) => {
+		segment.classList.add('red-lit');
+	});
+}
+
+function unlightTimer() {
+	timerSegments.forEach((segment) => {
+		segment.classList.remove('red-lit');
+	});
+}

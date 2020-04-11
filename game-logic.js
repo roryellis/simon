@@ -33,11 +33,9 @@ gameMode.innerText = gameModeValue.toUpperCase();
 //game generates a random move
 //generate random number 1-4, push to array
 function addNewMove() {
-    let newMove = Math.ceil(Math.random() * 4);
-    moves.push(newMove);
-    reverseMoves.unshift(newMove);
-    console.log('moves: ', moves);
-    console.log('reverse-moves: ', reverseMoves);
+	let newMove = Math.ceil(Math.random() * 4);
+	moves.push(newMove);
+	reverseMoves.unshift(newMove);
 }
 
 //Modal with instructions and "Ready to play?" button.
@@ -54,8 +52,40 @@ function startSequence() {
 	addNewMove();
 	// demo first move
 	setTimeout(() => {
-		demonstrate(moves);
+		demoSequence();
 	}, cycleSpeed * 60);
+}
+
+//countdown used for decrementing lit timer segments and as score multiplier
+let countDownValue = 10;
+let timer;
+
+function timerCountdown(start) {
+	// debugger;
+	if (start) {
+		if (countDownValue <= 0) {
+			return (countDownValue = 10);
+		} else {
+			timer = setTimeout(() => {
+				timerSegments[countDownValue - 1].classList.remove('red-lit');
+				countDownValue--;
+				timerCountdown(start);
+			}, gameSpeed * (moves.length / 2));
+		}
+	} else {
+		clearTimeout(timer);
+		countDownValue = 10;
+	}
+}
+
+//function to execute move demonstration and delayed timer countdown
+function demoSequence() {
+	demonstrate(moves);
+	setTimeout(() => {
+		//fill timer bar
+		lightTimer();
+		timerCountdown(true);
+	}, gameSpeed * (moves.length * 2));
 }
 
 //player inputs moves
@@ -79,23 +109,37 @@ function playerInput(event) {
 			if (playerMoves.length === moves.length) {
 				//increment player score
 				incrementScore();
+				//stop timerCountdown
+				timerCountdown(false);
 				//add new required move
 				addNewMove();
 				//reset player moves
 				playerMoves = [];
 				//demonstrate move array
 				setTimeout(() => {
-					demonstrate(moves);
+					demoSequence();
 				}, cycleSpeed * 16);
 			}
 		} else {
 			//FAIL SEQUENCE
+			//stop timerCountdown
+			timerCountdown(false);
 			flickerAll();
 			setTimeout(() => {
 				flickerAll();
 			}, cycleSpeed * 8);
 		}
 	}
+}
+
+function failSequence() {
+	//stop timerCountdown
+	timerCountdown(false);
+	//flicker lights
+	flickerAll();
+	setTimeout(() => {
+		flickerAll();
+	}, cycleSpeed * 8);
 }
 
 function getButtonId(event) {
@@ -136,20 +180,21 @@ function isTrue(item) {
 
 //increment current score
 function incrementScore() {
-	playerScore += 1;
+	playerScore += countDownValue;
 	currentScore.innerText = playerScore;
 	if (playerScore > topScoreValue) {
-        //LOCAL TOP SCORE STORAGE
-        //reference stackoverflow solutions https://stackoverflow.com/questions/16245536/setting-a-variable-in-local-storage/16245717#16245717
-        topScoreValue = playerScore;
-        localStorage.setItem('topScore', topScoreValue);
+		//LOCAL TOP SCORE STORAGE
+		//reference stackoverflow solutions https://stackoverflow.com/questions/16245536/setting-a-variable-in-local-storage/16245717#16245717
+		topScoreValue = playerScore;
+		localStorage.setItem('topScore', topScoreValue);
 		topScore.innerText = topScoreValue;
 	}
 }
 
-
 //reset button
 function reset() {
+    timerCountdown(false);
+    unlightTimer();
 	flickerAll();
 	moves = [];
 	playerMoves = [];
@@ -174,12 +219,12 @@ function setGameSpeed() {
 }
 
 function cycleGameMode() {
-    const modeOptions = ['standard', 'reverse'];
-    const currentModeIndex = modeOptions.indexOf(`${gameModeValue}`);
-    if (currentModeIndex === 1) {
-        gameModeValue = modeOptions[0];
-    } else {
-        gameModeValue = modeOptions[currentModeIndex + 1];
-    }
-    gameMode.innerText = gameModeValue.toUpperCase();
-};
+	const modeOptions = ['standard', 'reverse'];
+	const currentModeIndex = modeOptions.indexOf(`${gameModeValue}`);
+	if (currentModeIndex === 1) {
+		gameModeValue = modeOptions[0];
+	} else {
+		gameModeValue = modeOptions[currentModeIndex + 1];
+	}
+	gameMode.innerText = gameModeValue.toUpperCase();
+}
