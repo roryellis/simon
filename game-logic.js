@@ -118,7 +118,7 @@ function playerInput(event) {
 				//demonstrate move array
 				setTimeout(() => {
 					demoSequence();
-				}, cycleSpeed * 16);
+				}, gameSpeed * 3);
 			}
 		} else {
 			//FAIL SEQUENCE
