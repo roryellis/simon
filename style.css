@@ -7,10 +7,6 @@ li {
 	list-style-type: none;
 }
 
-.hidden {
-	display: none;
-}
-
 .score-board {
 	width: 50vw;
 	min-height: 3em;
@@ -206,4 +202,45 @@ li {
 
 .grey-lit {
 	background: radial-gradient(white, grey);
+}
+
+.instructions-modal {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+}
+
+.instructions-textbox {
+	background-color: white;
+	height: auto;
+	width: 75vw;
+	border-radius: 10px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	padding: 1vw;
+	line-height: 120%;
+	font-family: arial;
+}
+
+button {
+	padding: .8vw 1vw;
+	background-color: grey;
+	border: 1px solid black;
+	border-radius: 3px;
+	outline: none;
+	color: white;
+	cursor: pointer;
+}
+
+.modal-footer {
+	text-align: center;
+}
+
+.hidden {
+	display: none;
 }

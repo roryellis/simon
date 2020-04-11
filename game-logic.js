@@ -1,5 +1,5 @@
 //TARGETS
-const playButton = document.querySelector('.play-button');
+const startButton = document.querySelector('.play-button');
 const gameBoard = document.querySelector('.game-board');
 const resetButton = document.querySelector('.reset-button');
 const currentScore = document.querySelector('.current-score-value');
@@ -9,24 +9,28 @@ const difficultyButton = document.querySelector('.set-difficulty-button');
 const gameMode = document.querySelector('.game-mode');
 const gameModeButton = document.querySelector('.game-mode-button');
 
+
 //LISTENERS
-playButton.addEventListener('click', startSequence);
+startButton.addEventListener('click', startSequence);
 gameBoard.addEventListener('click', playerInput);
-gameBoard.addEventListener('click', buttonPressLight);
 resetButton.addEventListener('click', reset);
 difficultyButton.addEventListener('click', cycleDifficulty);
 gameModeButton.addEventListener('click', cycleGameMode);
 
+
 //Declare moves array.
 let moves = [];
 let reverseMoves = [];
+
+//declare variable to set if the game is open to accept input
+let acceptInput = false;
 
 //declare difficulty level
 let difficulty = 1;
 difficultyLevel.innerText = difficulty;
 setGameSpeed();
 
-//Declare game mode
+//Declare game mode variable
 let gameModeValue = 'standard';
 gameMode.innerText = gameModeValue.toUpperCase();
 
@@ -64,7 +68,9 @@ function timerCountdown(start) {
 	// debugger;
 	if (start) {
 		if (countDownValue <= 0) {
-			return (countDownValue = 10);
+            countDownValue = 10;
+            acceptInput = false;
+            return
 		} else {
 			timer = setTimeout(() => {
 				timerSegments[countDownValue - 1].classList.remove('red-lit');
@@ -82,6 +88,8 @@ function timerCountdown(start) {
 function demoSequence() {
 	demonstrate(moves);
 	setTimeout(() => {
+        //open for input
+        acceptInput = true;
 		//fill timer bar
 		lightTimer();
 		timerCountdown(true);
@@ -100,35 +108,41 @@ topScore.innerText = topScoreValue;
 //on button click(propagation on game board)
 function playerInput(event) {
 	if (event.target.classList.contains('game-button')) {
-		//get ID number of button, push id to array, toggle light on off
-		getButtonId(event);
-		//check player moves correct
-		if (checkPlayerMoves()) {
-			//if correct,wait for next input
-			//if playermoves.length = moves.length
-			if (playerMoves.length === moves.length) {
-				//increment player score
-				incrementScore();
-				//stop timerCountdown
-				timerCountdown(false);
-				//add new required move
-				addNewMove();
-				//reset player moves
-				playerMoves = [];
-				//demonstrate move array
-				setTimeout(() => {
-					demoSequence();
-				}, gameSpeed * 3);
-			}
-		} else {
-			//FAIL SEQUENCE
-			//stop timerCountdown
-			timerCountdown(false);
-			flickerAll();
-			setTimeout(() => {
-				flickerAll();
-			}, cycleSpeed * 8);
-		}
+        if (acceptInput) {
+            //get ID number of button, push id to array, toggle light on off
+            getButtonId(event);
+            //check player moves correct
+            if (checkPlayerMoves()) {
+                //if correct,wait for next input
+                //if playermoves.length = moves.length
+                if (playerMoves.length === moves.length) {
+                    //stop accepting input
+                    acceptInput = false;
+                    //increment player score
+                    incrementScore();
+                    //stop timerCountdown
+                    timerCountdown(false);
+                    //add new required move
+                    addNewMove();
+                    //reset player moves
+                    playerMoves = [];
+                    //demonstrate move array
+                    setTimeout(() => {
+                        demoSequence();
+                    }, gameSpeed * 3);
+                }
+            } else {
+                //FAIL SEQUENCE
+                //stop accepting input
+                acceptInput = false;
+                //stop timerCountdown
+                timerCountdown(false);
+                flickerAll();
+                setTimeout(() => {
+                    flickerAll();
+                }, cycleSpeed * 8);
+            }
+        }
 	}
 }
 

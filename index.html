@@ -8,17 +8,28 @@
 		<link rel="stylesheet" href="style.css" />
 		<script defer src="game-board-effects.js"></script>
 		<script defer src="game-logic.js"></script>
+		<script defer src="instructions.js"></script>
 	</head>
 	<body>
 		<header>
 			<h1>Simon</h1>
 		</header>
 		<main>
-			<section class="instruction-modal hidden">
-				<h2>How to play Simon</h2>
-				<p>SIMON INSTRUCTIONS</p>
-				<div class="modal-footer">
-					<button class="close-button">Close</button>
+			<section class="instructions-modal hidden">
+				<div class="instructions-textbox">
+					<h2>How to play Simon</h2>
+					<p>Simon is a simple game of "follow the leader". Click "Start", and Simon will flash a button. Follow Simon's lead and press the same button. If your button is correct, you score points and proceed to the next round!</p>
+					<p>
+					For each additional round, Simon will add a new button to the sequence. Repeat the sequence, stack up points, and test your memory. </p>
+					
+					<h3>Be fast! You're on the clock.</h3> 
+					<p>Complete the sequence before the timer runs out. The faster you are, the more points you score.  
+					</p>
+					<h3>Need a bigger challenge?</h3> <p>Press the "Difficulty" button to cycle through 4 game speed options. Each difficulty level multiplies your points!</p>
+					<h3>Ready to switch things up a bit?</h3> <p>Click "Mode" to reverse the sequence. Every time Simon gives a sequence, you have to enter it backwards!</p>
+					<div class="modal-footer">
+						<button class="close-button">Close</button>
+					</div>
 				</div>
 			</section>
 			<section class="game-area">
