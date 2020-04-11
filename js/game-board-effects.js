@@ -74,21 +74,37 @@ function lightShow() {
 	}, cycleSpeed * 8);
 }
 
-//Toggle lit state by button
+//declare sound variables
+let greenNoise = new Audio();
+greenNoise.src = 'sounds/simonSound1.mp3';
+
+let redNoise = new Audio();
+redNoise.src = 'sounds/simonSound2.mp3';
+
+let yellowNoise = new Audio();
+yellowNoise.src = 'sounds/simonSound3.mp3';
+
+let blueNoise = new Audio();
+blueNoise.src = 'sounds/simonSound4.mp3';
+
 function toggleGreenLit() {
 	greenButton.classList.toggle('green-lit');
+	// greenNoise.play();
 }
 
 function toggleRedLit() {
 	redButton.classList.toggle('red-lit');
+	// redNoise.play();
 }
 
 function toggleYellowLit() {
 	yellowButton.classList.toggle('yellow-lit');
+	// yellowNoise.play();
 }
 
 function toggleBlueLit() {
 	blueButton.classList.toggle('blue-lit');
+	// blueNoise.play();
 }
 
 //demonstrate moves
@@ -101,21 +117,25 @@ function demonstrate(arr) {
 		//check array[moveIndex] value and toggle lit state on corresponding game-button
 	} else if (arr[moveIndex] === 1) {
 		toggleGreenLit();
+		greenNoise.play();
 		setTimeout(() => {
 			toggleGreenLit();
 		}, gameSpeed);
 	} else if (arr[moveIndex] === 2) {
 		toggleRedLit();
+		redNoise.play();
 		setTimeout(() => {
 			toggleRedLit();
 		}, gameSpeed);
 	} else if (arr[moveIndex] === 3) {
 		toggleYellowLit();
+		yellowNoise.play();
 		setTimeout(() => {
 			toggleYellowLit();
 		}, gameSpeed);
 	} else if (arr[moveIndex] === 4) {
 		toggleBlueLit();
+		blueNoise.play();
 		setTimeout(() => {
 			toggleBlueLit();
 		}, gameSpeed);
@@ -132,21 +152,25 @@ function demonstrate(arr) {
 function buttonPressLight(buttonId) {
 	if (buttonId === 1) {
 		toggleGreenLit();
+		greenNoise.play();
 		setTimeout(() => {
 			toggleGreenLit();
 		}, gameSpeed * 0.5);
 	} else if (buttonId === 2) {
 		toggleRedLit();
+		redNoise.play();
 		setTimeout(() => {
 			toggleRedLit();
 		}, gameSpeed * 0.5);
 	} else if (buttonId === 3) {
 		toggleYellowLit();
+		yellowNoise.play();
 		setTimeout(() => {
 			toggleYellowLit();
 		}, gameSpeed * 0.5);
 	} else if (buttonId === 4) {
 		toggleBlueLit();
+		blueNoise.play();
 		setTimeout(() => {
 			toggleBlueLit();
 		}, gameSpeed * 0.5);
