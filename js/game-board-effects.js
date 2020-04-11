@@ -20,18 +20,22 @@ const cycleSpeed = 50;
 //Function to cycle lit states.
 function lightCycle() {
 	toggleGreenLit();
+	greenNoise.play();
 	setTimeout(() => {
 		toggleGreenLit();
 		setTimeout(() => {
 			toggleRedLit();
+			redNoise.play();
 			setTimeout(() => {
 				toggleRedLit();
 				setTimeout(() => {
 					toggleBlueLit();
+					blueNoise.play();
 					setTimeout(() => {
 						toggleBlueLit();
 						setTimeout(() => {
 							toggleYellowLit();
+							yellowNoise.play();
 							setTimeout(() => {
 								toggleYellowLit();
 							}, cycleSpeed);
@@ -89,22 +93,18 @@ blueNoise.src = 'sounds/simonSound4.mp3';
 
 function toggleGreenLit() {
 	greenButton.classList.toggle('green-lit');
-	// greenNoise.play();
 }
 
 function toggleRedLit() {
 	redButton.classList.toggle('red-lit');
-	// redNoise.play();
 }
 
 function toggleYellowLit() {
 	yellowButton.classList.toggle('yellow-lit');
-	// yellowNoise.play();
 }
 
 function toggleBlueLit() {
 	blueButton.classList.toggle('blue-lit');
-	// blueNoise.play();
 }
 
 //demonstrate moves
