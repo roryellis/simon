@@ -64,7 +64,7 @@ let playerMoves = [];
 //declare starting player score
 let playerScore = 0;
 currentScore.innerText = playerScore;
-let topScoreValue = 0;
+let topScoreValue = parseInt(localStorage.getItem('topScore'), 10) || 0;
 topScore.innerText = topScoreValue;
 
 //on button click(propagation on game board)
@@ -139,10 +139,14 @@ function incrementScore() {
 	playerScore += 1;
 	currentScore.innerText = playerScore;
 	if (playerScore > topScoreValue) {
-		topScoreValue = playerScore;
+        //LOCAL TOP SCORE STORAGE
+        //reference stackoverflow solutions https://stackoverflow.com/questions/16245536/setting-a-variable-in-local-storage/16245717#16245717
+        topScoreValue = playerScore;
+        localStorage.setItem('topScore', topScoreValue);
 		topScore.innerText = topScoreValue;
 	}
 }
+
 
 //reset button
 function reset() {

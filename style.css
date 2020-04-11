@@ -48,6 +48,7 @@ h2 {
 
 .game-button {
 	margin: 1vh;
+	box-shadow: inset 0 0 2vh black;
 }
 
 .game-controls-container {
