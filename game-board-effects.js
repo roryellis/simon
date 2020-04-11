@@ -128,6 +128,7 @@ function demonstrate(arr) {
 	}, gameSpeed * 2);
 }
 
+//toggle lit state on pressed button
 function buttonPressLight(buttonId) {
 	if (buttonId === 1) {
 		toggleGreenLit();
@@ -160,6 +161,7 @@ function lightTimer() {
 	});
 }
 
+//clear timer bar
 function unlightTimer() {
 	timerSegments.forEach((segment) => {
 		segment.classList.remove('red-lit');
