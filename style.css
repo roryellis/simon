@@ -146,6 +146,8 @@ li {
 .timer-bar {
 	display: grid;
 	grid-auto-flow: column;
+	margin: 0;
+	padding: 0;
 }
 
 .timer-segment {
@@ -205,7 +207,7 @@ li {
 }
 
 .instructions-modal {
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0, 0, 0, 0.4);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -228,7 +230,7 @@ li {
 }
 
 button {
-	padding: .8vw 1vw;
+	padding: 0.8vw 1vw;
 	background-color: grey;
 	border: 1px solid black;
 	border-radius: 3px;
