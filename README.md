@@ -27,6 +27,12 @@ A live hosted version of this game can be found at https://roryellis.github.io/s
 - Game layout: HTML
 - Styling: CSS
 - Interactive Functionality: Javascript
+- Sounds: Sound files sourced from freecodecamp Simon game example (https://github.com/beaucarnes/simon-game)
+..\* https://s3.amazonaws.com/freecodecamp/simonSound1.mp3
+..\* https://s3.amazonaws.com/freecodecamp/simonSound2.mp3
+..\* https://s3.amazonaws.com/freecodecamp/simonSound3.mp3
+..\* https://s3.amazonaws.com/freecodecamp/simonSound4.mp3
+
 
 ##Game Instructions
 Simon is a simple game of "follow the leader".
