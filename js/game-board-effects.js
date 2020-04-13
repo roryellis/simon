@@ -11,13 +11,10 @@ const blueButton = document.querySelector('.blue');
 const timerBar = document.querySelector('.timer-bar');
 const timerSegments = document.querySelectorAll('.timer-segment');
 
-//Set time delay in milliseconds for lit state toggle. Will adjust by difficulty level in setGameSpeed function.
-let gameSpeed;
-
 //Set time delay in milliseconds for light cycle and flicker
 const cycleSpeed = 60;
 
-//Function to cycle lit states.
+//Function to cycle lit states and sounds.
 function lightCycle() {
 	toggleGreenLit();
 	playSound(greenNoise);
@@ -60,8 +57,7 @@ function flickerAll() {
 	}, cycleSpeed * 4);
 }
 
-//Perform light show for startup and level win
-
+//Perform light show for startup
 function lightShow() {
 	lightCycle();
 	setTimeout(() => {
@@ -79,7 +75,7 @@ function lightShow() {
 }
 
 
-
+//Toggle lit state on game buttons
 function toggleGreenLit() {
 	greenButton.classList.toggle('green-lit');
 }

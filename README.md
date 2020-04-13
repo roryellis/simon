@@ -21,7 +21,7 @@ A live hosted version of this game can be found at https://roryellis.github.io/s
 - Score tracking
   ..\* Scoring is calculated as a multiple of the difficulty level and remaining time left available.
 - Local Top Score Storage
-  ..\* When the a user's current score is higher than the topScoreValue, the new topScoreValue is stored locally to be recalled when the game is re-visited.
+  ..\* When the a user's current score is higher than the topScoreValue, the new topScoreValue is stored locally to be recalled when the game is re-visited. Credit to stackoverflow solutions for helping me figure this out https://stackoverflow.com/questions/16245536/setting-a-variable-in-local-storage/16245717#16245717
 
 ##Technologies
 
