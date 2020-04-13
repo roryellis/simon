@@ -228,7 +228,7 @@ function cycleDifficulty() {
 }
 
 function setGameSpeed() {
-	const speedOptions = [500, 400, 325, 275];
+	const speedOptions = [450, 350, 250, 150];
 	gameSpeed = speedOptions[difficulty - 1];
 }
 
