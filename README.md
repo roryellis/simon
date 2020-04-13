@@ -7,6 +7,7 @@ Project 1 entry for General Assembly: Software Engineering Immersive Remote - 32
 I claim no ownership over the trademarked name or likeness of the Simon game, presented here under "fair use" as non-commercial and educational material.
 
 ##Play The Game
+
 A live hosted version of this game can be found at https://roryellis.github.io/simon/
 
 ##Features
