@@ -11,31 +11,31 @@ const blueButton = document.querySelector('.blue');
 const timerBar = document.querySelector('.timer-bar');
 const timerSegments = document.querySelectorAll('.timer-segment');
 
-//Set time delay in milliseconds for lit state toggle. Will adjust by difficulty level.
-let gameSpeed = 500;
+//Set time delay in milliseconds for lit state toggle. Will adjust by difficulty level in setGameSpeed function.
+let gameSpeed;
 
 //Set time delay in milliseconds for light cycle and flicker
-const cycleSpeed = 50;
+const cycleSpeed = 60;
 
 //Function to cycle lit states.
 function lightCycle() {
 	toggleGreenLit();
-	greenNoise.play();
+	playSound(greenNoise);
 	setTimeout(() => {
 		toggleGreenLit();
 		setTimeout(() => {
 			toggleRedLit();
-			redNoise.play();
+			playSound(redNoise);
 			setTimeout(() => {
 				toggleRedLit();
 				setTimeout(() => {
 					toggleBlueLit();
-					blueNoise.play();
+					playSound(blueNoise);
 					setTimeout(() => {
 						toggleBlueLit();
 						setTimeout(() => {
 							toggleYellowLit();
-							yellowNoise.play();
+							playSound(yellowNoise);
 							setTimeout(() => {
 								toggleYellowLit();
 							}, cycleSpeed);
@@ -78,18 +78,7 @@ function lightShow() {
 	}, cycleSpeed * 8);
 }
 
-//declare sound variables
-let greenNoise = new Audio();
-greenNoise.src = 'sounds/simonSound1.mp3';
 
-let redNoise = new Audio();
-redNoise.src = 'sounds/simonSound2.mp3';
-
-let yellowNoise = new Audio();
-yellowNoise.src = 'sounds/simonSound3.mp3';
-
-let blueNoise = new Audio();
-blueNoise.src = 'sounds/simonSound4.mp3';
 
 function toggleGreenLit() {
 	greenButton.classList.toggle('green-lit');
@@ -117,25 +106,25 @@ function demonstrate(arr) {
 		//check array[moveIndex] value and toggle lit state on corresponding game-button
 	} else if (arr[moveIndex] === 1) {
 		toggleGreenLit();
-		greenNoise.play();
+		playSound(greenNoise);
 		setTimeout(() => {
 			toggleGreenLit();
 		}, gameSpeed);
 	} else if (arr[moveIndex] === 2) {
 		toggleRedLit();
-		redNoise.play();
+		playSound(redNoise);
 		setTimeout(() => {
 			toggleRedLit();
 		}, gameSpeed);
 	} else if (arr[moveIndex] === 3) {
 		toggleYellowLit();
-		yellowNoise.play();
+		playSound(yellowNoise);
 		setTimeout(() => {
 			toggleYellowLit();
 		}, gameSpeed);
 	} else if (arr[moveIndex] === 4) {
 		toggleBlueLit();
-		blueNoise.play();
+		playSound(blueNoise);
 		setTimeout(() => {
 			toggleBlueLit();
 		}, gameSpeed);
@@ -152,25 +141,25 @@ function demonstrate(arr) {
 function buttonPressLight(buttonId) {
 	if (buttonId === 1) {
 		toggleGreenLit();
-		greenNoise.play();
+		playSound(greenNoise);
 		setTimeout(() => {
 			toggleGreenLit();
 		}, gameSpeed * 0.5);
 	} else if (buttonId === 2) {
 		toggleRedLit();
-		redNoise.play();
+		playSound(redNoise);
 		setTimeout(() => {
 			toggleRedLit();
 		}, gameSpeed * 0.5);
 	} else if (buttonId === 3) {
 		toggleYellowLit();
-		yellowNoise.play();
+		playSound(yellowNoise);
 		setTimeout(() => {
 			toggleYellowLit();
 		}, gameSpeed * 0.5);
 	} else if (buttonId === 4) {
 		toggleBlueLit();
-		blueNoise.play();
+		playSound(blueNoise);
 		setTimeout(() => {
 			toggleBlueLit();
 		}, gameSpeed * 0.5);
