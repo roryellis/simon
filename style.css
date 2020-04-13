@@ -7,123 +7,14 @@ li {
 	list-style-type: none;
 }
 
-.score-board {
-	width: 50vw;
-	min-height: 3em;
-	margin: 1vh auto;
-	display: grid;
-	grid-auto-flow: column;
-	justify-items: center;
-}
-
-.instructions-button {
-	display: block;
-	margin: 1vh auto;
-}
-
-.game-board-container,
-.game-board {
-	max-width: 100vw;
-	max-height: 100vw;
-	width: 60vh;
-	height: 60vh;
-}
-
-.game-board-container {
-	background: rgb(77, 77, 77);
-	margin: 0 auto;
-	border-radius: 100%;
-	padding: 1vw;
-	box-shadow: inset 0 0 2vh black;
-}
-
-.game-board {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	margin: auto auto;
-	position: relative;
-}
-
-.game-button {
-	margin: 1vh;
-	box-shadow: inset 0 0 2vh black;
-}
-
-.game-controls-container {
-	background: rgb(77, 77, 77);
-	width: 30vh;
-	height: 30vh;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -15vh;
-	margin-top: -15vh;
-	border-radius: 100%;
-}
-
-.game-controls {
-	width: 25vh;
-	height: 25vh;
-	text-align: center;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -12.5vh;
-	margin-top: -12.5vh;
-}
-
-.game-logo {
-	font-size: 5vh;
-	grid-row: 1;
-	margin: 0;
-}
-
-.info-center {
-	grid-row: 2;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-auto-flow: column;
-	margin: 0;
-}
-
-.game-mode-label {
-	justify-self: left;
-	grid-column: 1 / span 1;
-	margin: 0;
-}
-
-.difficulty-label {
-	justify-self: right;
-	grid-column: 2 / span 1;
-	margin: 0;
-}
-
-.digital-display {
-	height: 2.6vh;
-	font-family: 'VT323', monospace;
-	font-size: 2.5vh;
-	background: black;
-	color: red;
-	padding: 0.1vh 0.5vh;
-	display: grid;
-	grid-auto-flow: column;
-	list-style-type: none;
-	grid-column: 1 / span 2;
-	grid-row: 2 / span 1;
-	margin: 0;
-}
-
-.difficulty-level {
-	justify-self: right;
-}
-
-.game-mode {
-	justify-self: left;
+button {
+	background-color: grey;
+	border: 1px solid black;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	padding: 0.8vw 1vw;
 }
 
 .button-container {
@@ -139,71 +30,124 @@ li {
 	background: yellow;
 	box-shadow: inset 0 0 3vh rgb(104, 93, 0);
 	border-radius: 10%;
+	cursor: pointer;
 	margin: 0.5vh;
 	padding: 0.25vh;
 }
 
-.timer-bar {
+.difficulty-label {
+	grid-column: 2 / span 1;
+	justify-self: right;
+	margin: 0;
+}
+
+.difficulty-level {
+	justify-self: right;
+}
+
+.digital-display {
+	background: black;
+	color: red;
 	display: grid;
+	font-family: 'VT323', monospace;
+	font-size: 2.5vh;
+	grid-auto-flow: column;
+	grid-column: 1 / span 2;
+	grid-row: 2 / span 1;
+	height: 2.6vh;
+	list-style-type: none;
+	margin: 0;
+	padding: 0.1vh 0.5vh;
+}
+
+.game-board-container,
+.game-board {
+	height: 60vh;
+	max-height: 100vw;
+	max-width: 100vw;
+	width: 60vh;
+}
+
+.game-board {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	margin: auto auto;
+	position: relative;
+}
+
+.game-board-container {
+	background: rgb(77, 77, 77);
+	border-radius: 100%;
+	box-shadow: inset 0 0 2vh black;
+	margin: 0 auto;
+	padding: 1vw;
+}
+
+.game-button {
+	box-shadow: inset 0 0 2vh black;
+	cursor: pointer;
+	margin: 1vh;
+}
+
+.game-controls {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	height: 25vh;
+	left: 50%;
+	margin-left: -12.5vh;
+	margin-top: -12.5vh;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 25vh;
+}
+
+.game-controls-container {
+	background: rgb(77, 77, 77);
+	width: 30vh;
+	height: 30vh;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -15vh;
+	margin-top: -15vh;
+	border-radius: 100%;
+}
+
+.game-logo {
+	font-size: 5vh;
+	grid-row: 1;
+	margin: 0;
+}
+
+.game-mode {
+	justify-self: left;
+}
+
+.game-mode-label {
+	justify-self: left;
+	grid-column: 1 / span 1;
+	margin: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.info-center {
+	grid-row: 2;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	grid-auto-flow: column;
 	margin: 0;
-	padding: 0;
 }
 
-.timer-segment {
-	width: 2.5vw;
-	height: 1em;
-	margin-top: 1em;
-}
-
-.black {
-	border: 1px solid white;
-	background: black;
-}
-
-.green {
-	border-top-left-radius: 100%;
-	background: rgb(0, 100, 0);
-	border: none;
-}
-
-.green-lit {
-	background: radial-gradient(rgb(0, 255, 0), rgb(0, 100, 0));
-}
-
-.red {
-	border-top-right-radius: 100%;
-	background: rgb(100, 0, 0);
-	border: none;
-}
-.red-lit {
-	background: radial-gradient(rgb(255, 0, 0), rgb(100, 0, 0));
-}
-
-.yellow {
-	border-bottom-left-radius: 100%;
-	background: rgb(100, 100, 0);
-	border: none;
-}
-.yellow-lit {
-	background: radial-gradient(rgb(255, 255, 0), rgb(100, 100, 0));
-}
-
-.blue {
-	border-bottom-right-radius: 100%;
-	background: rgb(0, 0, 75);
-	border: none;
-}
-.blue-lit {
-	background: radial-gradient(rgb(0, 0, 255), rgb(0, 0, 75));
-}
-
-.game-button .grey {
-	background: grey;
-}
-
-.grey-lit {
-	background: radial-gradient(white, grey);
+.instructions-button {
+	display: block;
+	margin: 1vh auto;
 }
 
 .instructions-modal {
@@ -229,20 +173,75 @@ li {
 	font-family: arial;
 }
 
-button {
-	padding: 0.8vw 1vw;
-	background-color: grey;
-	border: 1px solid black;
-	border-radius: 3px;
-	outline: none;
-	color: white;
-	cursor: pointer;
-}
-
 .modal-footer {
 	text-align: center;
 }
 
-.hidden {
-	display: none;
+.score-board {
+	width: 50vw;
+	min-height: 3em;
+	margin: 1vh auto;
+	display: grid;
+	grid-auto-flow: column;
+	justify-items: center;
 }
+
+.timer-bar {
+	display: grid;
+	grid-auto-flow: column;
+	margin: 0;
+	padding: 0;
+}
+
+.timer-segment {
+	width: 2.5vw;
+	height: 1em;
+	margin-top: 1em;
+}
+
+/* BUTTON COLOR STATES */
+.black {
+	border: 1px solid white;
+	background: black;
+}
+
+.green {
+	border-top-left-radius: 100%;
+	background: rgb(0, 100, 0);
+	border: none;
+}
+
+.red {
+	border-top-right-radius: 100%;
+	background: rgb(100, 0, 0);
+	border: none;
+}
+
+.yellow {
+	border-bottom-left-radius: 100%;
+	background: rgb(100, 100, 0);
+	border: none;
+}
+
+.blue {
+	border-bottom-right-radius: 100%;
+	background: rgb(0, 0, 75);
+	border: none;
+}
+
+.green-lit {
+	background: radial-gradient(rgb(0, 255, 0), rgb(0, 100, 0));
+}
+
+.red-lit {
+	background: radial-gradient(rgb(255, 0, 0), rgb(100, 0, 0));
+}
+
+.yellow-lit {
+	background: radial-gradient(rgb(255, 255, 0), rgb(100, 100, 0));
+}
+
+.blue-lit {
+	background: radial-gradient(rgb(0, 0, 255), rgb(0, 0, 75));
+}
+/* END BUTTON COLOR STATES */
