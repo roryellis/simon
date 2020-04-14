@@ -39,9 +39,9 @@ let moves = [];
 let reverseMoves = [];
 
 //game generates a random move
-//generate random number 1-4, push to array
+//generate random number 0-3, push to array
 function addNewMove() {
-	let newMove = Math.ceil(Math.random() * 4);
+	let newMove = Math.floor(Math.random() * 4);
 	moves.push(newMove);
 	reverseMoves.unshift(newMove);
 }
