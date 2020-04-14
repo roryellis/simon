@@ -88,14 +88,17 @@ function lightShow() {
 let moveIndex = 0;
 //demonstrate is passed the moves array, consisting of button ids
 function demonstrate(arr) {
-	debugger;
+	// debugger;
 	//base case ends recursive function and returns moveindex to zero
-	if (moveIndex > arr.length) {
+	if (moveIndex >= arr.length) {
 		return (moveIndex = 0);
 		//check array[moveIndex] value and toggle lit state on corresponding game-button
 	} else {
 		//credit to this jcuenod's solution for findIndex by key value https://stackoverflow.com/questions/11258077/how-to-find-index-of-an-object-by-key-and-value-in-an-javascript-array
-		const index = buttonArray.findIndex((b) => b.id == arr[moveIndex]);
+        const index = buttonArray.findIndex((b) => b.id == arr[moveIndex]);
+        console.log('arr[moveIndex]: ', arr[moveIndex]);
+        console.log('index: ', index);
+        console.log('buttonArray[index]: ', buttonArray[index]);
 		buttonArray[index].toggleLit();
 		buttonArray[index].playSound();
 		setTimeout(() => {
@@ -118,6 +121,20 @@ function buttonPressLight(buttonId) {
 	setTimeout(() => {
 		buttonArray[index].toggleLit();
 	}, gameSpeed);
+};
+
+//initiate full timer bar
+function lightTimer() {
+	timerSegments.forEach((segment) => {
+		segment.classList.add('red-lit');
+	});
+}
+
+//clear timer bar
+function unlightTimer() {
+	timerSegments.forEach((segment) => {
+		segment.classList.remove('red-lit');
+	});
 }
 
 //Target individual game buttons
@@ -255,17 +272,3 @@ function buttonPressLight(buttonId) {
 // 		}, gameSpeed * 0.5);
 // 	}
 // }
-
-//initiate full timer bar
-function lightTimer() {
-	timerSegments.forEach((segment) => {
-		segment.classList.add('red-lit');
-	});
-}
-
-//clear timer bar
-function unlightTimer() {
-	timerSegments.forEach((segment) => {
-		segment.classList.remove('red-lit');
-	});
-}
