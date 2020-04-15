@@ -15,7 +15,7 @@ A live hosted version of this game can be found at https://roryellis.github.io/s
 - Interactive game board
 - "Lighting" effects via CSS "lit" classes
 - Adjustable difficulty
-  ..\* Selects from an array of 4 available game speeds used to set timing of
+  ..\* Selects from an array of 4 available game speeds used to set timing.
 - Secondary "Reverse" game mode
   ..\* Uses .reverse() array method to reverse the order of expected moves in checkMoves()
 - Score tracking

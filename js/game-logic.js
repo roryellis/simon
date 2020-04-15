@@ -16,11 +16,18 @@ resetButton.addEventListener('click', reset);
 difficultyButton.addEventListener('click', cycleDifficulty);
 gameModeButton.addEventListener('click', cycleGameMode);
 
-//declare variable to set if the game is open to accept input
+//declare variable to set if the game is open to accept input. Used in playerInput function.
 let acceptInput = false;
 
 //Gamespeed variable to set time delay in milliseconds between lit state toggle. Will adjust by difficulty level in setGameSpeed function.
 let gameSpeed;
+
+function setGameSpeed() {
+	//declare gameSpeed delay for each difficulty level
+	const speedOptions = [450, 350, 250, 150];
+	//assign gamespeed to value in array index corresponding to difficulty level
+	gameSpeed = speedOptions[difficulty - 1];
+}
 
 //declare difficulty level
 let difficulty = 1;
@@ -64,7 +71,7 @@ function startSequence() {
 //countdown used for decrementing lit timer segments and as score multiplier
 let countDownValue = 10;
 let timer;
-//Recursive function takes boolean input allowing it to serve as a start/stop functionality
+//Recursive function takes boolean argument allowing it to serve as a start/stop functionality
 function timerCountdown(start) {
 	//if argument is true
 	if (start) {
@@ -77,7 +84,6 @@ function timerCountdown(start) {
 		//if countdown is not zero
 		else {
 			//assign setTimeout function to variable
-			//Delay allows moves demonstration to complete
 			timer = setTimeout(() => {
 				//target timerSegments array item one less than countdown value to toggle red-lit state to black.
 				timerSegments[countDownValue - 1].classList.remove('red-lit');
@@ -85,6 +91,7 @@ function timerCountdown(start) {
 				countDownValue--;
 				//recall the function
 				timerCountdown(start);
+				//Delay increases with number of moves
 			}, gameSpeed * (moves.length / 2));
 		}
 	}
@@ -129,7 +136,7 @@ function playerInput(event) {
 	if (event.target.classList.contains('game-button')) {
 		//If acceptInput is true(game is ready for input)
 		if (acceptInput) {
-			//get ID number of button, push id to playerMoves array, play sound, toggle light on/off
+			//get ID number of button, push id to playerMoves array, play sound, toggle lit state on/off
 			getButtonId(event);
 			//check playerMoves against the moves array.
 			if (checkPlayerMoves()) {
@@ -263,13 +270,6 @@ function cycleDifficulty() {
 	difficultyLevel.innerText = difficulty;
 	//set gameSpeed value
 	setGameSpeed();
-}
-
-function setGameSpeed() {
-	//declare gameSpeed delay for each difficulty level
-	const speedOptions = [450, 350, 250, 150];
-	//assign gamespeed to value in array index corresponding to difficulty level
-	gameSpeed = speedOptions[difficulty - 1];
 }
 
 function cycleGameMode() {
