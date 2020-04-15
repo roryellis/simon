@@ -88,7 +88,6 @@ function lightShow() {
 let moveIndex = 0;
 //demonstrate is passed the moves array, consisting of button ids
 function demonstrate(arr) {
-	// debugger;
 	//base case ends recursive function and returns moveindex to zero
 	if (moveIndex >= arr.length) {
 		return (moveIndex = 0);
